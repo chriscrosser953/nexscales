@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEX Scale — Creator-Led Ads That Scale</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #fbfbfb;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f5f5f7;
+  --bg-muted: #ebebed;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+  --text-faint: #aeaeb2;
+  --border: #e0e0e2;
+  --border-light: #ececee;
+  --accent: #1d1d1f;
+  --accent-hover: #000000;
+  --gold: #b8860b;
+  --gold-light: #c9972e;
+  --gold-soft: rgba(184,134,11,0.08);
+  --gold-glow: rgba(184,134,11,0.04);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(24px, 4vw, 64px); }
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 0;
+  background: rgba(251,251,251,0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+nav .container { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-cta {
+  background: var(--text-primary) !important;
+  color: var(--bg) !important;
+  padding: 10px 24px !important;
+  border-radius: 100px;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: all 0.3s !important;
+}
+.nav-cta:hover { background: var(--accent-hover) !important; }
+
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, var(--gold-soft) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  padding: 8px 20px;
+  margin-bottom: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.hero h1 {
+  font-size: clamp(52px, 8vw, 110px);
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.btn-primary svg { width: 16px; height: 16px; }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(--text-tertiary); background: var(--bg-subtle); }
+
+/* ── HERO CREDENTIAL ── */
+.hero-credential {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.credential-line { width: 40px; height: 1px; background: var(--border); }
+.credential-text { font-size: 13px; color: var(--text-tertiary); letter-spacing: 0.02em; line-height: 1.6; }
+.credential-text strong { color: var(--text-secondary); font-weight: 600; }
+
+/* ── PHILOSOPHY ── */
+.philosophy { padding: 120px 0; border-top: 1px solid var(--border-light); }
+.philosophy-inner { max-width: 760px; }
+.philosophy h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 32px; line-height: 1.15; }
+.philosophy h2 em { color: var(--gold); font-style: italic; }
+.philosophy p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+.philosophy-divider { width: 40px; height: 2px; background: var(--gold); margin: 40px 0; }
+
+/* ── SERVICES ── */
+.services { padding: 140px 0; }
+.section-header { margin-bottom: 80px; }
+.section-header h2 { font-size: clamp(36px, 5vw, 56px); margin-bottom: 20px; }
+.section-header p { font-size: 18px; color: var(--text-secondary); max-width: 500px; line-height: 1.7; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.service-card {
+  background: var(--bg-elevated);
+  padding: 48px 40px;
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: default;
+}
+.service-card:hover { background: var(--bg-subtle); }
+.service-card:hover .service-num { color: var(--gold); }
+.service-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--border);
+  margin-bottom: 32px;
+  transition: color 0.4s;
+}
+.service-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.02em; }
+.service-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+/* ── WORK / CASE STUDIES ── */
+.work { padding: 140px 0; }
+.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.work-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--text-primary);
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.work-card:first-child { grid-column: 1 / -1; aspect-ratio: 21/9; }
+.work-card video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0.85;
+}
+.work-card:hover video { transform: scale(1.03); opacity: 1; }
+.work-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(29,29,31,0.92) 0%, rgba(29,29,31,0.15) 60%);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.4s;
+  z-index: 2;
+}
+.work-card-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+.work-card h3 { font-size: 24px; margin-bottom: 8px; color: #fff; }
+.work-card p { font-size: 14px; color: rgba(255,255,255,0.6); max-width: 400px; }
+.work-card-arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s;
+  z-index: 3;
+}
+.work-card:hover .work-card-arrow { opacity: 1; transform: translateY(0); }
+
+/* ── VIDEO REEL CAROUSEL ── */
+.reel { padding: 140px 0; background: var(--bg-subtle); }
+.reel .section-header { padding: 0 clamp(24px, 4vw, 64px); max-width: 1320px; margin: 0 auto 48px; }
+.reel-track-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  scroll-snap-type: x proximity;
+}
+.reel-track-wrapper:active { cursor: grabbing; }
+.reel-track-wrapper::-webkit-scrollbar { display: none; }
+.reel-track {
+  display: flex;
+  gap: 16px;
+  padding: 0 clamp(24px, 4vw, 64px);
+  width: max-content;
+}
+.reel-item {
+  flex: 0 0 280px;
+  height: 497px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  scroll-snap-align: start;
+}
+.reel-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.reel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.reel-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.reel-item.playing .reel-item-overlay { opacity: 0; }
+.reel-item.playing:hover .reel-item-overlay { opacity: 1; }
+.reel-play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+  cursor: pointer;
+  border: none;
+}
+.reel-play-btn:hover { transform: scale(1.1); }
+.reel-play-btn svg { width: 20px; height: 20px; margin-left: 3px; }
+.reel-volume-control {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.reel-item.playing .reel-volume-control {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.reel-item.playing:not(:hover) .reel-volume-control {
+  opacity: 0;
+  pointer-events: none;
+}
+.reel-vol-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.reel-vol-btn:hover { background: rgba(255,255,255,0.3); }
+.reel-vol-btn svg { width: 14px; height: 14px; }
+.reel-vol-slider-wrap {
+  flex: 1;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 0 14px;
+}
+.reel-vol-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+.reel-vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  transition: transform 0.15s;
+}
+.reel-vol-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.reel-vol-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.reel-vol-pct {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  min-width: 28px;
+  text-align: right;
+  font-family: 'Space Grotesk', sans-serif;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.reel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 0 clamp(24px, 4vw, 64px);
+}
+.reel-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.reel-nav-btn:hover { background: var(--text-primary); border-color: var(--text-primary); }
+.reel-nav-btn:hover svg { stroke: var(--bg); }
+.reel-nav-btn svg { width: 16px; height: 16px; stroke: var(--text-primary); fill: none; stroke-width: 2; }
+.reel-dots {
+  display: flex;
+  gap: 6px;
+}
+.reel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+.reel-dot.active { background: var(--gold); width: 24px; border-radius: 3px; }
+
+/* ── PROCESS ── */
+.process { padding: 140px 0; background: var(--bg-subtle); }
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-top: 20px; }
+.process-step { position: relative; }
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  right: -24px;
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+}
+.process-step:last-child::after { display: none; }
+.step-num {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  transition: all 0.3s;
+}
+.process-step:hover .step-num { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.process-step h3 { font-size: 20px; margin-bottom: 12px; }
+.process-step p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* ── FOUNDER ── */
+.founder { padding: 140px 0; }
+.founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.founder-visual {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, var(--bg-subtle) 0%, var(--bg-muted) 100%);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.founder-visual-label {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  right: 32px;
+}
+.founder-visual-label h4 { font-size: 20px; margin-bottom: 4px; }
+.founder-visual-label p { font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.04em; }
+.founder-content h2 { font-size: clamp(36px, 4vw, 52px); margin-bottom: 28px; }
+.founder-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+.founder-content .highlight-text {
+  font-size: 18px;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.7;
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+  margin: 32px 0;
+}
+.founder-values { display: flex; gap: 32px; margin-top: 40px; }
+.founder-value { flex: 1; }
+.founder-value h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--gold); font-family: 'Space Grotesk', sans-serif; }
+.founder-value p { font-size: 13px; color: var(--text-tertiary); line-height: 1.6; }
+
+/* ── MARQUEE ── */
+.marquee-section { padding: 48px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); overflow: hidden; }
+.marquee-track {
+  display: flex;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-track span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-faint);
+  padding: 0 40px;
+  white-space: nowrap;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── CURSOR GLOW ── */
+.cursor-glow {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+body:hover .cursor-glow { opacity: 1; }
+
+/* ── CTA ── */
+.cta { padding: 140px 0; }
+.cta-box {
+  background: var(--text-primary);
+  border-radius: 24px;
+  padding: 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-box .label { color: rgba(255,255,255,0.4); }
+.cta-box h2 { font-size: clamp(36px, 4vw, 52px); margin-bottom: 20px; position: relative; color: #fff; }
+.cta-box p { font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 16px; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; }
+.cta-box .cta-fine { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 40px; position: relative; }
+.cta-box .btn-primary {
+  background: #fff;
+  color: var(--text-primary);
+  font-size: 15px;
+  padding: 18px 44px;
+  position: relative;
+}
+.cta-box .btn-primary:hover { background: var(--bg-subtle); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+
+/* ── FOOTER ── */
+footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
+.footer-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 60px; }
+.footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.04em; }
+.footer-logo span { color: var(--gold); }
+.footer-cols { display: flex; gap: 80px; }
+.footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 14px; color: var(--text-secondary); text-decoration: none; margin-bottom: 12px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--text-primary); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+.footer-social { display: flex; gap: 20px; }
+.footer-social a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; font-size: 13px; }
+.footer-social a:hover { color: var(--text-primary); }
+
+/* ── ANIMATIONS ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .process-step::after { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .work-grid { grid-template-columns: 1fr; }
+  .work-card:first-child { aspect-ratio: 4/3; }
+  .services-grid { grid-template-columns: 1fr; }
+  .founder-grid { grid-template-columns: 1fr; gap: 0; }
+  .founder-visual { display: none; }
+  .founder { padding: 80px 0; }
+  .process-steps { grid-template-columns: 1fr; gap: 32px; }
+  .footer-top { flex-direction: column; gap: 40px; }
+  .footer-cols { flex-direction: column; gap: 32px; }
+  .cta-box { padding: 48px 28px; }
+  .founder-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .founder-values .founder-value:last-child {
+    grid-column: 1 / -1;
+  }
+  .hero-credential { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .reel-item { flex: 0 0 240px; height: 426px; }
+  .philosophy { padding: 80px 0; }
+  .services { padding: 80px 0; }
+  .work { padding: 80px 0; }
+  .reel { padding: 80px 0; }
+  .process { padding: 80px 0; }
+  .cta { padding: 80px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">NEX<span>.</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#reel">Reel</a>
+      <a href="#process">Process</a>
+      <a href="#founder">About</a>
+      <a href="https://christianallenphoto.com/contact" class="nav-cta" target="_blank">Apply to Work With Us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      Currently at capacity — join the waitlist
+    </div>
+    <h1>Creator-led ads<br>that <em>scale.</em></h1>
+    <p class="hero-sub">No fluff. Just revenue. We build performance creative systems for brands that are ready to go all in — not everyone, just the right ones.</p>
+    <div class="hero-actions">
+      <a href="https://christianallenphoto.com/contact" class="btn-primary" target="_blank">
+        Apply to Work With Us
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+      </a>
+      <a href="#work" class="btn-secondary">See the Work</a>
+    </div>
+    <div class="hero-credential">
+      <div class="credential-line"></div>
+      <p class="credential-text">
+        Founded by <strong>Chris</strong> — 5 years at <strong>Ridge</strong>, where he helped build one of DTC's most recognized performance creative programs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHILOSOPHY ── -->
+<section class="philosophy">
+  <div class="container">
+    <div class="philosophy-inner fade-in">
+      <span class="label">Our Philosophy</span>
+      <h2>We're not for <em>everyone.</em><br>That's the point.</h2>
+      <p>Most agencies take on anyone with a budget. We don't. We work with a small roster of brands who are serious about creative as a growth lever — not a checkbox.</p>
+      <p>If you want pretty ads and a monthly report, there are plenty of agencies for that. If you want a creative partner who's been in the trenches, knows what converts, and will treat your brand like their own — we should talk.</p>
+      <div class="philosophy-divider"></div>
+      <p>We keep our client list intentionally small so every brand gets the same level of obsession that built Ridge's creative program from the ground up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="label">What You Get</span>
+      <h2>The full creative<br>machine.</h2>
+      <p>End-to-end. No outsourcing. No handoffs. The same level of creative infrastructure that powers 9-figure brands.</p>
+    </div>
+    <div class="services-grid fade-in">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Creative Strategy</h3>
+        <p>We dissect your brand, your audience, and your competitive landscape to build a playbook that actually drives revenue — not a deck that collects dust.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Creative Direction</h3>
+        <p>Every frame is intentional. We direct with a performance lens — moodboards, shot lists, and scripts built around what converts, not what wins awards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Production</h3>
+        <p>Studio, on-location, creator shoots — fully managed. We handle the chaos so you get polished assets that perform the second they go live.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Post-Production</h3>
+        <p>Platform-native editing, motion, and iteration at speed. Scroll-stopping cuts optimized for every placement, every format, every platform.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>Creator Partnerships</h3>
+        <p>Vetted creators matched to your brand. We handle sourcing, briefing, and contracting — you get authentic content that actually moves product.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Content Repurposing</h3>
+        <p>Your existing brand content, re-engineered for performance. We transform what you already have into high-converting ad creative across every channel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WORK ── -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="label">Selected Work</span>
+      <h2>The work speaks.<br>We don't have to.</h2>
+    </div>
+    <div class="work-grid fade-in">
+      <div class="work-card">
+        <video muted autoplay loop playsinline poster="posters/YT133a.jpg" preload="auto"><source src="videos-compressed/YT133a.mp4" type="video/mp4"></video>
+        <div class="work-card-overlay">
+          <span class="work-card-tag">Fashion / Apparel</span>
+          <h3>Brand content → performance engine</h3>
+          <p>Took their existing campaign assets and repurposed them into a high-converting ad library across Meta and TikTok.</p>
+        </div>
+        <div class="work-card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </div>
+      </div>
+      <div class="work-card">
+        <video muted autoplay loop playsinline poster="posters/Clutch.jpg" preload="auto"><source src="videos-compressed/Clutch.mp4" type="video/mp4"></video>
+        <div class="work-card-overlay">
+          <span class="work-card-tag">DTC Tech</span>
+          <h3>Rebuilt the entire creative system</h3>
+          <p>Replaced their agency of record and delivered a performance creative pipeline that scaled profitably from day one.</p>
+        </div>
+        <div class="work-card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </div>
+      </div>
+      <div class="work-card">
+        <video muted autoplay loop playsinline poster="posters/NathanAndSons.jpg" preload="auto"><source src="videos-compressed/NathanAndSons.mp4" type="video/mp4"></video>
+        <div class="work-card-overlay">
+          <span class="work-card-tag">CPG</span>
+          <h3>Optimized through repurposing</h3>
+          <p>Maximized the value of existing brand content — extending its lifespan and turning it into a library of high-performing ads without a single new shoot.</p>
+        </div>
+        <div class="work-card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VIDEO REEL ── -->
+<section class="reel" id="reel">
+  <div class="section-header fade-in">
+    <span class="label">The Reel</span>
+    <h2>Creative that<br>converts.</h2>
+  </div>
+  <div class="reel-track-wrapper">
+    <div class="reel-track" id="reelTrack">
+      <div class="reel-item">
+        <video muted loop playsinline preload="auto" poster="posters/0010A.jpg"><source src="videos-compressed/0010A.mp4" type="video/mp4"></video>
+        <div class="reel-item-overlay">
+          <button class="reel-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>
+          </button>
+        </div>
+        <div class="reel-volume-control">
+          <button class="reel-vol-btn" aria-label="Mute/Unmute">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+          </button>
+          <div class="reel-vol-slider-wrap">
+            <input type="range" class="reel-vol-slider" min="0" max="100" value="75">
+          </div>
+          <span class="reel-vol-pct">75%</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <video muted loop playsinline preload="auto" poster="posters/0038A.jpg"><source src="videos-compressed/0038A.mp4" type="video/mp4"></video>
+        <div class="reel-item-overlay">
+          <button class="reel-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>
+          </button>
+        </div>
+        <div class="reel-volume-control">
+          <button class="reel-vol-btn" aria-label="Mute/Unmute">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+          </button>
+          <div class="reel-vol-slider-wrap">
+            <input type="range" class="reel-vol-slider" min="0" max="100" value="75">
+          </div>
+          <span class="reel-vol-pct">75%</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <video muted loop playsinline preload="auto" poster="posters/0054C.jpg"><source src="videos-compressed/0054C.mp4" type="video/mp4"></video>
+        <div class="reel-item-overlay">
+          <button class="reel-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>
+          </button>
+        </div>
+        <div class="reel-volume-control">
+          <button class="reel-vol-btn" aria-label="Mute/Unmute">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+          </button>
+          <div class="reel-vol-slider-wrap">
+            <input type="range" class="reel-vol-slider" min="0" max="100" value="75">
+          </div>
+          <span class="reel-vol-pct">75%</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <video muted loop playsinline preload="auto" poster="posters/2344A.jpg"><source src="videos-compressed/2344A.mp4" type="video/mp4"></video>
+        <div class="reel-item-overlay">
+          <button class="reel-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>
+          </button>
+        </div>
+        <div class="reel-volume-control">
+          <button class="reel-vol-btn" aria-label="Mute/Unmute">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+          </button>
+          <div class="reel-vol-slider-wrap">
+            <input type="range" class="reel-vol-slider" min="0" max="100" value="75">
+          </div>
+          <span class="reel-vol-pct">75%</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <video muted loop playsinline preload="auto" poster="posters/EC1B.jpg"><source src="videos-compressed/EC1B.mp4" type="video/mp4"></video>
+        <div class="reel-item-overlay">
+          <button class="reel-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>
+          </button>
+        </div>
+        <div class="reel-volume-control">
+          <button class="reel-vol-btn" aria-label="Mute/Unmute">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+          </button>
+          <div class="reel-vol-slider-wrap">
+            <input type="range" class="reel-vol-slider" min="0" max="100" value="75">
+          </div>
+          <span class="reel-vol-pct">75%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reel-nav">
+    <button class="reel-nav-btn" id="reelPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+    </button>
+    <div class="reel-dots">
+      <button class="reel-dot active" data-index="0" aria-label="Slide 1"></button>
+      <button class="reel-dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="reel-dot" data-index="2" aria-label="Slide 3"></button>
+      <button class="reel-dot" data-index="3" aria-label="Slide 4"></button>
+      <button class="reel-dot" data-index="4" aria-label="Slide 5"></button>
+    </div>
+    <button class="reel-nav-btn" id="reelNext" aria-label="Next">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="label">How It Works</span>
+      <h2>No hand-holding.<br>Just execution.</h2>
+      <p>A proven system for brands that are ready to move. Strategy to scaled creative — fast.</p>
+    </div>
+    <div class="process-steps fade-in">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Discovery</h3>
+        <p>We audit your current creative, study what's winning in your space, and build a strategy rooted in what actually performs.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Creative Dev</h3>
+        <p>Concepts, scripts, moodboards, creator matching. Everything built around conversion — not aesthetics for the sake of it.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Production</h3>
+        <p>We shoot, direct, and deliver. End-to-end, fully managed. You get finished assets, not headaches.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Scale</h3>
+        <p>Launch, test, iterate. Ongoing creative variations driven by real data. We don't stop when the first batch ships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDER ── -->
+<section class="founder" id="founder">
+  <div class="container">
+    <div class="founder-grid fade-in">
+      <div class="founder-visual">
+        <div class="founder-visual-label">
+          <h4>Chris</h4>
+          <p>Founder & Creative Director</p>
+        </div>
+      </div>
+      <div class="founder-content">
+        <span class="label">The Person Behind It</span>
+        <h2>5 years building Ridge's creative machine.</h2>
+        <p>I spent 5 years at Ridge helping build the creative strategy behind one of DTC's most talked-about ad programs. I know what it takes to turn creator content into a real growth engine — because I've done it at scale.</p>
+        <div class="highlight-text">
+          I started NEX Scale because I saw too many brands getting burned by agencies that don't understand performance. I only take on partners where I know I can make a real impact.
+        </div>
+        <p>This isn't a big agency with layers of account managers. When you work with NEX, you work with me and a tight team of specialists who've been in this world for years. That's the edge.</p>
+        <div class="founder-values">
+          <div class="founder-value">
+            <h4>Selective</h4>
+            <p>Small roster, deep partnerships. Every brand gets my direct attention.</p>
+          </div>
+          <div class="founder-value">
+            <h4>Proven</h4>
+            <p>Built and led creative at one of DTC's most recognized brands.</p>
+          </div>
+          <div class="founder-value">
+            <h4>Obsessed</h4>
+            <p>I don't do surface-level work. Your brand gets the same intensity Ridge got.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<section class="marquee-section">
+  <div class="marquee-track">
+    <span>Strategy</span><span>Direction</span><span>Production</span><span>Post-Production</span><span>Creator-Led</span><span>Performance</span><span>Revenue</span><span>Scale</span>
+    <span>Strategy</span><span>Direction</span><span>Production</span><span>Post-Production</span><span>Creator-Led</span><span>Performance</span><span>Revenue</span><span>Scale</span>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <span class="label">Work With Us</span>
+      <h2>Think you're ready?</h2>
+      <p>We take on a limited number of partners each quarter. If you're serious about creative as a growth lever and ready to move fast, apply below.</p>
+      <p class="cta-fine">Not every brand is the right fit — and that's okay. We'll be upfront about it.</p>
+      <a href="https://christianallenphoto.com/contact" class="btn-primary" target="_blank">
+        Apply Now
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">NEX<span>.</span></div>
+        <p style="color: var(--text-tertiary); font-size: 13px; margin-top: 8px; max-width: 260px;">Creator-led ads that scale.<br>No fluff. Just revenue.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#founder">About</a>
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Case Studies</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="mailto:sean@christianallenphoto.com">sean@christianallenphoto.com</a>
+          <a href="https://christianallenphoto.com" target="_blank">christianallenphoto.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 NEX Scale. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<script>
+// ── Scroll Animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Nav scroll effect ──
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.padding = window.pageYOffset > 100 ? '12px 0' : '20px 0';
+});
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelector('.nav-links').classList.remove('show');
+    }
+  });
+});
+
+// ── Cursor glow follow ──
+const glow = document.getElementById('cursorGlow');
+let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
+document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+function animateGlow() {
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+  glow.style.left = glowX + 'px';
+  glow.style.top = glowY + 'px';
+  requestAnimationFrame(animateGlow);
+}
+animateGlow();
+
+// ── Service card tilt on hover ──
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
+  });
+});
+
+// ── Magnetic effect on buttons ──
+document.querySelectorAll('.btn-primary, .btn-secondary, .nav-cta').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0px, 0px)';
+  });
+});
+
+// ── Service number count-up on scroll ──
+const serviceNums = document.querySelectorAll('.service-num');
+const numObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.textContent);
+      let current = 0;
+      const duration = 800;
+      const start = performance.now();
+      function countUp(timestamp) {
+        const elapsed = timestamp - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(target * eased);
+        el.textContent = String(current).padStart(2, '0');
+        if (progress < 1) requestAnimationFrame(countUp);
+        else el.textContent = String(target).padStart(2, '0');
+      }
+      el.textContent = '00';
+      requestAnimationFrame(countUp);
+      numObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+serviceNums.forEach(el => numObserver.observe(el));
+
+// ── Process step hover ──
+document.querySelectorAll('.process-step').forEach((step) => {
+  step.addEventListener('mouseenter', () => {
+    step.querySelector('.step-num').style.transform = 'scale(1.1)';
+  });
+  step.addEventListener('mouseleave', () => {
+    step.querySelector('.step-num').style.transform = 'scale(1)';
+  });
+});
+
+// ── Parallax on hero glow ──
+window.addEventListener('scroll', () => {
+  const scrollY = window.pageYOffset;
+  const hero = document.querySelector('.hero');
+  if (hero) hero.style.setProperty('--parallax', scrollY * 0.3 + 'px');
+});
+
+// ── Text reveal for philosophy ──
+const philosophyH2 = document.querySelector('.philosophy h2');
+if (philosophyH2) {
+  const textObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.transition = 'opacity 1s ease, transform 1s ease';
+      }
+    });
+  }, { threshold: 0.3 });
+  philosophyH2.style.opacity = '0';
+  philosophyH2.style.transform = 'translateY(20px)';
+  textObserver.observe(philosophyH2);
+}
+
+// ── Reel carousel ──
+const reelWrapper = document.querySelector('.reel-track-wrapper');
+const reelTrack = document.getElementById('reelTrack');
+if (reelWrapper && reelTrack) {
+  const itemWidth = 296; // 280 + 16 gap
+
+  // Drag to scroll (on the wrapper, which is the scroll container)
+  let isDown = false, startX, scrollLeftStart, hasDragged = false;
+  reelWrapper.addEventListener('mousedown', (e) => {
+    isDown = true;
+    hasDragged = false;
+    reelWrapper.style.cursor = 'grabbing';
+    startX = e.pageX;
+    scrollLeftStart = reelWrapper.scrollLeft;
+  });
+  document.addEventListener('mouseup', () => {
+    isDown = false;
+    if (reelWrapper) reelWrapper.style.cursor = 'grab';
+  });
+  reelWrapper.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const walk = (e.pageX - startX) * 2;
+    if (Math.abs(walk) > 5) hasDragged = true;
+    reelWrapper.scrollLeft = scrollLeftStart - walk;
+  });
+
+  // Touch drag support
+  let touchStartX, touchScrollStart;
+  reelWrapper.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].pageX;
+    touchScrollStart = reelWrapper.scrollLeft;
+  }, { passive: true });
+  reelWrapper.addEventListener('touchmove', (e) => {
+    const walk = touchStartX - e.touches[0].pageX;
+    reelWrapper.scrollLeft = touchScrollStart + walk;
+  }, { passive: true });
+
+  // Arrow nav
+  const prevBtn = document.getElementById('reelPrev');
+  const nextBtn = document.getElementById('reelNext');
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    reelWrapper.scrollBy({ left: -itemWidth * 2, behavior: 'smooth' });
+  });
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    reelWrapper.scrollBy({ left: itemWidth * 2, behavior: 'smooth' });
+  });
+
+  // Progress dots
+  const dots = document.querySelectorAll('.reel-dot');
+  reelWrapper.addEventListener('scroll', () => {
+    const maxScroll = reelWrapper.scrollWidth - reelWrapper.clientWidth;
+    if (maxScroll <= 0) return;
+    const scrollPercent = reelWrapper.scrollLeft / maxScroll;
+    const activeIndex = Math.round(scrollPercent * (dots.length - 1));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+  });
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index);
+      const maxScroll = reelWrapper.scrollWidth - reelWrapper.clientWidth;
+      reelWrapper.scrollTo({ left: maxScroll * (index / (dots.length - 1)), behavior: 'smooth' });
+    });
+  });
+}
+
+// ── Reel play/pause ──
+document.querySelectorAll('.reel-play-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    const item = this.closest('.reel-item');
+    const video = item.querySelector('video');
+    const isPlaying = item.classList.contains('playing');
+
+    // Stop all other videos
+    document.querySelectorAll('.reel-item').forEach(ri => {
+      if (ri !== item) {
+        ri.classList.remove('playing');
+        const v = ri.querySelector('video');
+        v.pause();
+        v.muted = true;
+        ri.querySelector('.reel-play-btn').innerHTML = '<svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>';
+      }
+    });
+
+    if (isPlaying) {
+      video.pause();
+      video.muted = true;
+      item.classList.remove('playing');
+      this.innerHTML = '<svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>';
+    } else {
+      video.muted = false;
+      video.volume = globalVolume;
+      video.play().catch(() => {
+        video.muted = true;
+        video.play();
+      });
+      item.classList.add('playing');
+      this.innerHTML = '<svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+      // Sync volume UI
+      const val = Math.round(globalVolume * 100);
+      document.querySelectorAll('.reel-vol-slider').forEach(s => { s.value = val; });
+      document.querySelectorAll('.reel-vol-pct').forEach(p => { p.textContent = val + '%'; });
+      document.querySelectorAll('.reel-item').forEach(ri => updateVolIcon(ri, globalVolume));
+    }
+  });
+});
+
+// ── Volume control ──
+let globalVolume = 0.75;
+const volIcons = {
+  high: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>',
+  low: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>',
+  muted: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>'
+};
+
+function updateVolIcon(item, vol) {
+  const btn = item.querySelector('.reel-vol-btn');
+  if (vol === 0) btn.innerHTML = volIcons.muted;
+  else if (vol < 0.5) btn.innerHTML = volIcons.low;
+  else btn.innerHTML = volIcons.high;
+}
+
+document.querySelectorAll('.reel-vol-slider').forEach(slider => {
+  slider.addEventListener('input', function(e) {
+    e.stopPropagation();
+    const item = this.closest('.reel-item');
+    const video = item.querySelector('video');
+    const pct = item.querySelector('.reel-vol-pct');
+    const val = parseInt(this.value);
+    globalVolume = val / 100;
+    video.volume = globalVolume;
+    video.muted = globalVolume === 0;
+    pct.textContent = val + '%';
+    updateVolIcon(item, globalVolume);
+    // Sync all sliders
+    document.querySelectorAll('.reel-vol-slider').forEach(s => { s.value = val; });
+    document.querySelectorAll('.reel-vol-pct').forEach(p => { p.textContent = val + '%'; });
+    document.querySelectorAll('.reel-item').forEach(ri => updateVolIcon(ri, globalVolume));
+  });
+  // Prevent drag-to-scroll when using slider
+  slider.addEventListener('mousedown', e => e.stopPropagation());
+  slider.addEventListener('touchstart', e => e.stopPropagation());
+});
+
+document.querySelectorAll('.reel-vol-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    const item = this.closest('.reel-item');
+    const video = item.querySelector('video');
+    if (video.muted || video.volume === 0) {
+      video.muted = false;
+      video.volume = globalVolume > 0 ? globalVolume : 0.75;
+      globalVolume = video.volume;
+    } else {
+      video.muted = true;
+    }
+    const val = video.muted ? 0 : Math.round(globalVolume * 100);
+    document.querySelectorAll('.reel-vol-slider').forEach(s => { s.value = val; });
+    document.querySelectorAll('.reel-vol-pct').forEach(p => { p.textContent = val + '%'; });
+    document.querySelectorAll('.reel-item').forEach(ri => updateVolIcon(ri, video.muted ? 0 : globalVolume));
+  });
+});
+
+// ── Auto-play reel videos muted when visible ──
+const reelVideoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.muted = true;
+      video.play().catch(() => {});
+    } else {
+      if (!video.closest('.reel-item')?.classList.contains('playing')) {
+        video.pause();
+      }
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.reel-item video').forEach(v => reelVideoObserver.observe(v));
+
+// ── Auto-play work card videos when visible ──
+const workVideoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.muted = true;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.work-card video').forEach(v => workVideoObserver.observe(v));
+</script>
+
+</body>
+</html>
