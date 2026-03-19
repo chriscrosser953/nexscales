@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
 :root {
   --bg: #fbfbfb;
   --bg-elevated: #ffffff;
@@ -26,9 +26,9 @@
   --gold-soft: rgba(184,134,11,0.08);
   --gold-glow: rgba(184,134,11,0.04);
 }
-
+ 
 html { scroll-behavior: smooth; font-size: 16px; }
-
+ 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   background: var(--bg);
@@ -38,7 +38,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
-
+ 
 h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -46,9 +46,9 @@ h1, h2, h3, h4 {
   letter-spacing: -0.03em;
   color: var(--text-primary);
 }
-
+ 
 .container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(24px, 4vw, 64px); }
-
+ 
 .label {
   font-size: 11px;
   font-weight: 600;
@@ -58,7 +58,7 @@ h1, h2, h3, h4 {
   margin-bottom: 20px;
   display: inline-block;
 }
-
+ 
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -99,10 +99,10 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   transition: all 0.3s !important;
 }
 .nav-cta:hover { background: var(--accent-hover) !important; }
-
+ 
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; }
-
+ 
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -139,7 +139,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
+ 
 .hero h1 {
   font-size: clamp(52px, 8vw, 110px);
   margin-bottom: 32px;
@@ -194,7 +194,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   transition: all 0.3s;
 }
 .btn-secondary:hover { border-color: var(--text-tertiary); background: var(--bg-subtle); }
-
+ 
 /* ── HERO CREDENTIAL ── */
 .hero-credential {
   margin-top: 80px;
@@ -207,7 +207,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .credential-line { width: 40px; height: 1px; background: var(--border); }
 .credential-text { font-size: 13px; color: var(--text-tertiary); letter-spacing: 0.02em; line-height: 1.6; }
 .credential-text strong { color: var(--text-secondary); font-weight: 600; }
-
+ 
 /* ── PHILOSOPHY ── */
 .philosophy { padding: 120px 0; border-top: 1px solid var(--border-light); }
 .philosophy-inner { max-width: 760px; }
@@ -215,13 +215,13 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .philosophy h2 em { color: var(--gold); font-style: italic; }
 .philosophy p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
 .philosophy-divider { width: 40px; height: 2px; background: var(--gold); margin: 40px 0; }
-
+ 
 /* ── SERVICES ── */
 .services { padding: 140px 0; }
 .section-header { margin-bottom: 80px; }
 .section-header h2 { font-size: clamp(36px, 5vw, 56px); margin-bottom: 20px; }
 .section-header p { font-size: 18px; color: var(--text-secondary); max-width: 500px; line-height: 1.7; }
-
+ 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -250,7 +250,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .service-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.02em; }
 .service-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
-
+ 
 /* ── WORK / CASE STUDIES ── */
 .work { padding: 140px 0; }
 .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
@@ -312,7 +312,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   z-index: 3;
 }
 .work-card:hover .work-card-arrow { opacity: 1; transform: translateY(0); }
-
+ 
 /* ── VIDEO REEL CAROUSEL ── */
 .reel { padding: 140px 0; background: var(--bg-subtle); }
 .reel .section-header { padding: 0 clamp(24px, 4vw, 64px); max-width: 1320px; margin: 0 auto 48px; }
@@ -511,7 +511,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   padding: 0;
 }
 .reel-dot.active { background: var(--gold); width: 24px; border-radius: 3px; }
-
+ 
 /* ── PROCESS ── */
 .process { padding: 140px 0; background: var(--bg-subtle); }
 .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-top: 20px; }
@@ -544,7 +544,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .process-step:hover .step-num { background: var(--gold); color: var(--bg); border-color: var(--gold); }
 .process-step h3 { font-size: 20px; margin-bottom: 12px; }
 .process-step p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-
+ 
 /* ── FOUNDER ── */
 .founder { padding: 140px 0; }
 .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -578,7 +578,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .founder-value { flex: 1; }
 .founder-value h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--gold); font-family: 'Space Grotesk', sans-serif; }
 .founder-value p { font-size: 13px; color: var(--text-tertiary); line-height: 1.6; }
-
+ 
 /* ── MARQUEE ── */
 .marquee-section { padding: 48px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); overflow: hidden; }
 .marquee-track {
@@ -597,7 +597,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-
+ 
 /* ── CURSOR GLOW ── */
 .cursor-glow {
   position: fixed;
@@ -612,7 +612,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   opacity: 0;
 }
 body:hover .cursor-glow { opacity: 1; }
-
+ 
 /* ── CTA ── */
 .cta { padding: 140px 0; }
 .cta-box {
@@ -646,7 +646,7 @@ body:hover .cursor-glow { opacity: 1; }
   position: relative;
 }
 .cta-box .btn-primary:hover { background: var(--bg-subtle); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
-
+ 
 /* ── FOOTER ── */
 footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
 .footer-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 60px; }
@@ -668,7 +668,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
 .footer-social { display: flex; gap: 20px; }
 .footer-social a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; font-size: 13px; }
 .footer-social a:hover { color: var(--text-primary); }
-
+ 
 /* ── ANIMATIONS ── */
 .fade-in {
   opacity: 0;
@@ -676,7 +676,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
-
+ 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .process-steps { grid-template-columns: repeat(2, 1fr); }
@@ -716,7 +716,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
 </style>
 </head>
 <body>
-
+ 
 <!-- ── NAV ── -->
 <nav>
   <div class="container">
@@ -734,7 +734,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </button>
   </div>
 </nav>
-
+ 
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="container hero-content">
@@ -759,7 +759,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── PHILOSOPHY ── -->
 <section class="philosophy">
   <div class="container">
@@ -773,7 +773,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── SERVICES ── -->
 <section class="services" id="services">
   <div class="container">
@@ -816,7 +816,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── WORK ── -->
 <section class="work" id="work">
   <div class="container">
@@ -861,7 +861,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── VIDEO REEL ── -->
 <section class="reel" id="reel">
   <div class="section-header fade-in">
@@ -973,7 +973,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </button>
   </div>
 </section>
-
+ 
 <!-- ── PROCESS ── -->
 <section class="process" id="process">
   <div class="container">
@@ -1006,7 +1006,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── FOUNDER ── -->
 <section class="founder" id="founder">
   <div class="container">
@@ -1043,7 +1043,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── MARQUEE ── -->
 <section class="marquee-section">
   <div class="marquee-track">
@@ -1051,7 +1051,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     <span>Strategy</span><span>Direction</span><span>Production</span><span>Post-Production</span><span>Creator-Led</span><span>Performance</span><span>Revenue</span><span>Scale</span>
   </div>
 </section>
-
+ 
 <!-- ── CTA ── -->
 <section class="cta" id="contact">
   <div class="container">
@@ -1067,7 +1067,7 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </section>
-
+ 
 <!-- ── FOOTER ── -->
 <footer>
   <div class="container">
@@ -1104,9 +1104,9 @@ footer { padding: 60px 0 40px; border-top: 1px solid var(--border-light); }
     </div>
   </div>
 </footer>
-
+ 
 <div class="cursor-glow" id="cursorGlow"></div>
-
+ 
 <script>
 // ── Scroll Animations ──
 const observer = new IntersectionObserver((entries) => {
@@ -1115,13 +1115,13 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
+ 
 // ── Nav scroll effect ──
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   nav.style.padding = window.pageYOffset > 100 ? '12px 0' : '20px 0';
 });
-
+ 
 // ── Smooth scroll ──
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -1133,7 +1133,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-
+ 
 // ── Cursor glow follow ──
 const glow = document.getElementById('cursorGlow');
 let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
@@ -1146,7 +1146,7 @@ function animateGlow() {
   requestAnimationFrame(animateGlow);
 }
 animateGlow();
-
+ 
 // ── Service card tilt on hover ──
 document.querySelectorAll('.service-card').forEach(card => {
   card.addEventListener('mousemove', (e) => {
@@ -1159,7 +1159,7 @@ document.querySelectorAll('.service-card').forEach(card => {
     card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
   });
 });
-
+ 
 // ── Magnetic effect on buttons ──
 document.querySelectorAll('.btn-primary, .btn-secondary, .nav-cta').forEach(btn => {
   btn.addEventListener('mousemove', (e) => {
@@ -1172,7 +1172,7 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .nav-cta').forEach(btn 
     btn.style.transform = 'translate(0px, 0px)';
   });
 });
-
+ 
 // ── Service number count-up on scroll ──
 const serviceNums = document.querySelectorAll('.service-num');
 const numObserver = new IntersectionObserver((entries) => {
@@ -1199,7 +1199,7 @@ const numObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 serviceNums.forEach(el => numObserver.observe(el));
-
+ 
 // ── Process step hover ──
 document.querySelectorAll('.process-step').forEach((step) => {
   step.addEventListener('mouseenter', () => {
@@ -1209,14 +1209,14 @@ document.querySelectorAll('.process-step').forEach((step) => {
     step.querySelector('.step-num').style.transform = 'scale(1)';
   });
 });
-
+ 
 // ── Parallax on hero glow ──
 window.addEventListener('scroll', () => {
   const scrollY = window.pageYOffset;
   const hero = document.querySelector('.hero');
   if (hero) hero.style.setProperty('--parallax', scrollY * 0.3 + 'px');
 });
-
+ 
 // ── Text reveal for philosophy ──
 const philosophyH2 = document.querySelector('.philosophy h2');
 if (philosophyH2) {
@@ -1233,13 +1233,13 @@ if (philosophyH2) {
   philosophyH2.style.transform = 'translateY(20px)';
   textObserver.observe(philosophyH2);
 }
-
+ 
 // ── Reel carousel ──
 const reelWrapper = document.querySelector('.reel-track-wrapper');
 const reelTrack = document.getElementById('reelTrack');
 if (reelWrapper && reelTrack) {
   const itemWidth = 296; // 280 + 16 gap
-
+ 
   // Drag to scroll (on the wrapper, which is the scroll container)
   let isDown = false, startX, scrollLeftStart, hasDragged = false;
   reelWrapper.addEventListener('mousedown', (e) => {
@@ -1260,7 +1260,7 @@ if (reelWrapper && reelTrack) {
     if (Math.abs(walk) > 5) hasDragged = true;
     reelWrapper.scrollLeft = scrollLeftStart - walk;
   });
-
+ 
   // Touch drag support
   let touchStartX, touchScrollStart;
   reelWrapper.addEventListener('touchstart', (e) => {
@@ -1271,7 +1271,7 @@ if (reelWrapper && reelTrack) {
     const walk = touchStartX - e.touches[0].pageX;
     reelWrapper.scrollLeft = touchScrollStart + walk;
   }, { passive: true });
-
+ 
   // Arrow nav
   const prevBtn = document.getElementById('reelPrev');
   const nextBtn = document.getElementById('reelNext');
@@ -1281,7 +1281,7 @@ if (reelWrapper && reelTrack) {
   if (nextBtn) nextBtn.addEventListener('click', () => {
     reelWrapper.scrollBy({ left: itemWidth * 2, behavior: 'smooth' });
   });
-
+ 
   // Progress dots
   const dots = document.querySelectorAll('.reel-dot');
   reelWrapper.addEventListener('scroll', () => {
@@ -1299,7 +1299,7 @@ if (reelWrapper && reelTrack) {
     });
   });
 }
-
+ 
 // ── Reel play/pause ──
 document.querySelectorAll('.reel-play-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
@@ -1308,7 +1308,7 @@ document.querySelectorAll('.reel-play-btn').forEach(btn => {
     const item = this.closest('.reel-item');
     const video = item.querySelector('video');
     const isPlaying = item.classList.contains('playing');
-
+ 
     // Stop all other videos
     document.querySelectorAll('.reel-item').forEach(ri => {
       if (ri !== item) {
@@ -1319,7 +1319,7 @@ document.querySelectorAll('.reel-play-btn').forEach(btn => {
         ri.querySelector('.reel-play-btn').innerHTML = '<svg viewBox="0 0 24 24" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>';
       }
     });
-
+ 
     if (isPlaying) {
       video.pause();
       video.muted = true;
@@ -1342,7 +1342,7 @@ document.querySelectorAll('.reel-play-btn').forEach(btn => {
     }
   });
 });
-
+ 
 // ── Volume control ──
 let globalVolume = 0.75;
 const volIcons = {
@@ -1350,14 +1350,14 @@ const volIcons = {
   low: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>',
   muted: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>'
 };
-
+ 
 function updateVolIcon(item, vol) {
   const btn = item.querySelector('.reel-vol-btn');
   if (vol === 0) btn.innerHTML = volIcons.muted;
   else if (vol < 0.5) btn.innerHTML = volIcons.low;
   else btn.innerHTML = volIcons.high;
 }
-
+ 
 document.querySelectorAll('.reel-vol-slider').forEach(slider => {
   slider.addEventListener('input', function(e) {
     e.stopPropagation();
@@ -1379,7 +1379,7 @@ document.querySelectorAll('.reel-vol-slider').forEach(slider => {
   slider.addEventListener('mousedown', e => e.stopPropagation());
   slider.addEventListener('touchstart', e => e.stopPropagation());
 });
-
+ 
 document.querySelectorAll('.reel-vol-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.stopPropagation();
@@ -1399,37 +1399,67 @@ document.querySelectorAll('.reel-vol-btn').forEach(btn => {
     document.querySelectorAll('.reel-item').forEach(ri => updateVolIcon(ri, video.muted ? 0 : globalVolume));
   });
 });
-
+ 
+// ── Helper: try to play a video, retry when ready ──
+function tryPlay(video) {
+  video.muted = true;
+  const attempt = () => video.play().catch(() => {});
+  if (video.readyState >= 2) {
+    attempt();
+  } else {
+    video.addEventListener('canplay', attempt, { once: true });
+  }
+}
+ 
 // ── Auto-play reel videos muted when visible ──
 const reelVideoObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const video = entry.target;
     if (entry.isIntersecting) {
-      video.muted = true;
-      video.play().catch(() => {});
+      tryPlay(video);
     } else {
       if (!video.closest('.reel-item')?.classList.contains('playing')) {
         video.pause();
       }
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.3 });
 document.querySelectorAll('.reel-item video').forEach(v => reelVideoObserver.observe(v));
-
+ 
 // ── Auto-play work card videos when visible ──
 const workVideoObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const video = entry.target;
     if (entry.isIntersecting) {
-      video.muted = true;
-      video.play().catch(() => {});
+      tryPlay(video);
     } else {
       video.pause();
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.2 });
 document.querySelectorAll('.work-card video').forEach(v => workVideoObserver.observe(v));
+ 
+// ── Fallback: on first user interaction, play all visible videos ──
+function playVisibleVideos() {
+  document.querySelectorAll('video').forEach(v => {
+    const rect = v.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      tryPlay(v);
+    }
+  });
+}
+['click','scroll','touchstart','mousemove'].forEach(evt => {
+  document.addEventListener(evt, playVisibleVideos, { once: true });
+});
+ 
+// ── Also try on page load + after a short delay ──
+window.addEventListener('load', () => {
+  playVisibleVideos();
+  setTimeout(playVisibleVideos, 1000);
+  setTimeout(playVisibleVideos, 3000);
+});
 </script>
-
+ 
 </body>
 </html>
+ 
